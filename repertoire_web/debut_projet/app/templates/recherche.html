@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" 
+            href="{{ url_for( 'static', filename='style.css' ) }}" />
+</head>
+<body>
+    <form action = "{{ url_for('requete') }}" method = "POST">
+        <h3>Rechercher une personne par critère</h3>
+        Choisissez le critère de recherche :
+        <select name="champ" id="champ" size="1">
+            <option value="prenom">Prénom</option>
+            <option value="nom">Nom</option>  
+            <option value="email">E-mail</option>
+        </select><br>
+
+        Taper les caractères que vous recherchez. Vous pouvez utiliser les caractères %, _, [ ], ^, - <br>
+        <input type = "text" name = "motcle" id = "motcle" required/></br>
+        <input type = "submit" value = "Rechercher" id = "rechercher"/><br>
+     </form>
+   <a href = "/">Retourner à la page d'accueil</a>
+</body>
+</html>

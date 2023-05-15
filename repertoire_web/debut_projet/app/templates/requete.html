@@ -1,0 +1,38 @@
+<!doctype html>
+<html  lang="fr-FR">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" 
+      href="{{ url_for( 'static', filename='style.css' ) }}" />
+   </head>
+
+ 
+   <body>
+{{msg}}
+<h1>Résultat de la requête {{reqete}} sur la colonne {{champ}} </h1>
+<div>
+<table border = 1>
+  <thead>
+     <td>id</td>
+     <td>Prénom</td>
+     <td>Nom</td>
+     <td>E-mail</td>
+  </thead>
+  
+  <p>{{ l }} résultats</p>
+
+  {% for row in res %}
+     <tr>
+        <td>{{row["id"]}}</td>
+        <td>{{row["prenom"]}}</td>
+        <td>{{row["nom"]}}</td>
+        <td>{{row['email']}}</td>	
+     </tr>
+  {% endfor %}
+</table>
+</div>
+<a href = "/">Retourner à la page d'accueil</a><br>
+<a href = "/recherche">--> rechercher une personne</a>
+
+</body>
+</html>

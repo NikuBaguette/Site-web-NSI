@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" 
+    href="{{ url_for( 'static', filename='style.css' ) }}" />
+    <title>Document</title>
+
+
+<body>
+    <form action="{{ url_for('save_name') }}" method="post">
+    <table>
+      <tr>
+         <!--
+          <td>Saisir nom</td>  --> 
+          <td><input type="text" name="nom" value="Saisir un nom" /></td>
+         
+          <td><input type="text" name="prenom" value="Saisir un prénom"</td>
+          <td><input type="text" name="email" value="Saisir une adresse mail"</td>
+      </tr>
+      <tr><td colspan="2">
+      	 <input type="submit" name="act" value="Envoyer" />
+      	 <input type="submit" name="act" value="Abandonner" />
+     </td></tr>
+    </table>
+    </form>    
+</body>
