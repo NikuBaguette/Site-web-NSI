@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire</title>
+    <style>
+        body {
+    background-color: wheat;
+  }
+  
+
+
+    header{
+    background: rgba( 120, 196, 237 ,0.6);
+    display: flex;
+    justify-content: center;
+    background-attachment: fixed;
+    background-size: over;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+
+
+ 
+/* responsive */
+        * {
+          box-sizing: border-box;
+        }
+        
+        input[type=text], select, textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+        }
+        
+        label {
+          padding: 12px 12px 12px 0;
+          display: inline-block;
+        }
+        
+        input[type=submit] {
+          background-color: #04AA6D;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          float: right;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        .container {
+          border-radius: 5px;
+          background-color: rgba(235, 95, 95, 0.817);
+          padding: 20px;
+          margin-left: 10%;
+          margin-right: 10%;
+          margin-top: 10px;
+          border: 2px solid black;
+
+        }
+        
+        .col-25 {
+          float: left;
+          width: 25%;
+          margin-top: 6px;
+        }
+        
+        .col-75 {
+          float: left;
+          width: 75%;
+          margin-top: 6px;
+        }
+        
+        
+        .row::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        
+        @media screen and (max-width: 600px) {
+          .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+          }
+        }
+        </style>
+    </style>
+
+
+
+</head>
+
+<header class="oui">
+        <img src="header.png" alt="header" class="logo">
+</header> 
+
+<body>
+
+    <div class="container">
+        <form action="/action_page.php">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Identifiant</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="firstname" placeholder="Identifiant">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Jeux </label>
+          </div>
+          <div class="col-75">
+            <select id="country" name="country">
+              <option value="australia">JEU 1</option>
+              <option value="canada">JEU 2 </option>
+              <option value="usa">JEU 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="country">Note sur 5</label>
+          </div>
+          <div class="col-75">
+            0
+            <input type="range" min="0" max="5" step="0.5" list="valeur" />
+            5
+            <datalist id="valeur">
+                <option value="0" label="0"></option>
+                <option value="1" label="25"></option>
+                <option value="2" label="50"></option>
+                <option value="3" label="75"></option>
+                <option value="4" label="100"></option>
+                <option value="5" label="100"></option>
+              </datalist>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="subject">Commentaire</label>
+          </div>
+          <div class="col-75">
+            <textarea id="subject" name="subject" placeholder="Mettre un commentaire..." style="height:200px"></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <input type="submit" value="Valider">
+        </div>
+        </form>
+      </div>
+
+    
+</body>
+
+<footer>
+    <p>
+        blablablalbalblablalbalblablalbalblalbalblablalb    
+    </p>
+</footer>
+
+
+</html>
