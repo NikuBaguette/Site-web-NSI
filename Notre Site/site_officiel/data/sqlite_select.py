@@ -1,10 +1,9 @@
 import sqlite3
 
-conn=sqlite3.connect("data\\personne.db")
+conn=sqlite3.connect("personne.db")
 cur=conn.cursor()
 
 def find():
-    
     cur.execute("SELECT Nom,min(note) FROM Personne")
     conn.commit()
     minimum = cur.fetchall()
@@ -16,4 +15,4 @@ def find():
     maximum = cur.fetchall()
     cur.close()
     conn.close()
-    return {"minimum" : minimum, "maximum" : maximum, "moyenne" : moyenne}
+    return {"minimum": minimum, "maximum": maximum, "moyenne": moyenne}
