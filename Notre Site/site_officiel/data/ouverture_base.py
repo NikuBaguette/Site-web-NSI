@@ -20,7 +20,7 @@ data=[]
 data2=[]
 
 for i in range(30):
-      temp1=(i+1,fake.name(),fake.email(),fake.street_address(),fake.city(),fake.postcode(),random.randint(0,20),random.randint(1,10))
+      temp1=(i+1,fake.name(),fake.email(),fake.street_address(),fake.city(),fake.postcode(),random.randint(0,5),random.randint(1,10))
       data.append(temp1)
 cur.executemany("INSERT INTO Personne VALUES(?, ?, ?, ?, ?, ?, ?, ?)", data)
 con.commit()
