@@ -57,6 +57,10 @@
         input[type=submit]:hover {
           background-color: #45a049;
         }
+
+        .range{
+          width: 50%;
+        }
         
         .container {
           border-radius: 5px;
@@ -103,7 +107,7 @@
 </head>
 
 <header class="oui">
-        <img src="templates\header.png" alt="header" class="logo">
+        <img src="header.png" alt="header" class="logo">
 </header> 
 
 <body>
@@ -176,20 +180,20 @@
           </div>
           <div class="col-75">
             0
-            <input name = 'note' type="range" min="0" max="10" step="0.5" list="valeur" />
+            <input name = 'note' type="range" min="0" max="10" step="0.5" list="valeur" class="range" />
             10
             <datalist id="valeur">
                 <option value="0" label="0"></option>
-                <option value="1" label="25"></option>
-                <option value="2" label="50"></option>
-                <option value="3" label="75"></option>
-                <option value="4" label="100"></option>
-                <option value="5" label="125"></option>
-                <option value="6" label="150"></option>
-                <option value="7" label="175"></option>
-                <option value="8" label="200"></option>
-                <option value="9" label="225"></option>
-                <option value="10" label="225"></option>
+                <option value="1" label="1"></option>
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+                <option value="6" label="6"></option>
+                <option value="7" label="7"></option>
+                <option value="8" label="8"></option>
+                <option value="9" label="9"></option>
+                <option value="10" label="10"></option>
               </datalist>
           </div>
         </div>
@@ -211,11 +215,6 @@
     
 </body>
 
-<footer>
-    <p>
-        blablablalbalblablalbalblablalbalblalbalblablalb    
-    </p>
-</footer>
 
 
 </html>
