@@ -84,7 +84,9 @@ border-radius: 10px;
       float: left;
       width: 75%;
       margin-top: 6px;
-      background-color: #04AA6D;
+      background-color: rgba(194, 181, 255, 0.616);
+      border-radius: 10px;
+        
     }
     
     
@@ -108,11 +110,7 @@ border-radius: 10px;
 
 <header>
 
-    <h1>Avis</h1>
-         <label for="username">rechercher un jeu :</label><br>
-         <input type="text" id="username" name="username"><br>
-
-
+    <h1 style="padding-top:20px ;">Avis des jeux ainsi que leurs notes</h1>
 
 
 </header>
@@ -128,9 +126,9 @@ border-radius: 10px;
           <div class="col-75">
             <div class="oui" >
                 <ul>
-                    <li>{{ username }}</li>
-                    <li> </li>
-                    <li>alblablalblabl</li>
+                    <li>{{nom_minecraft}}</li>
+                    <li> Le jeu est sortie en {{date_minecraft}}</li>
+                    <li>{{note_minecraft}} / 10</li>
                 </ul>
 
             </div>
@@ -148,9 +146,9 @@ border-radius: 10px;
           <div class="col-75">
             <div class="oui" >
                 <ul>
-                    <li>blalblabla</li>
-                    <li>blablalblab</li>
-                    <li>alblablalblabl</li>
+                    <li>{{nom_Valorant}}</li>
+                    <li> Le jeu est sortie en {{date_Valorant}}</li>
+                    <li>{{note_Valorant}} / 10</li>
                 </ul>
 
             </div>
@@ -162,37 +160,16 @@ border-radius: 10px;
 
       <div class="container">
         
-        <div class="row">
+        <div class="row" >
           <div class="col-25">
             <img src="bleue.png" alt="bleue">
           </div>
           <div class="col-75">
             <div class="oui" >
                 <ul>
-                    <li>blalblabla</li>
-                    <li>blablalblab</li>
-                    <li>alblablalblabl</li>
-                </ul>
-
-            </div>
-          </div>
-        </div>
-        
-
-      </div>
-
-      <div class="container">
-        
-        <div class="row">
-          <div class="col-25">
-            <img src="bleue.png" alt="bleue">
-          </div>
-          <div class="col-75">
-            <div class="oui" >
-                <ul>
-                    <li>blalblabla</li>
-                    <li>blablalblab</li>
-                    <li>alblablalblabl</li>
+                    <li>{{nom_Apex}}</li>
+                    <li> Le jeu est sortie en {{date_Apex}}</li>
+                    <li>{{note_Apex}} / 10</li>
                 </ul>
 
             </div>
@@ -211,9 +188,9 @@ border-radius: 10px;
           <div class="col-75">
             <div class="oui" >
                 <ul>
-                    <li>blalblabla</li>
-                    <li>blablalblab</li>
-                    <li>alblablalblabl</li>
+                    <li>{{nom_Roblox}}</li>
+                    <li> Le jeu est sortie en {{date_Roblox}}</li>
+                    <li>{{note_Roblox}} / 10</li>
                 </ul>
 
             </div>
@@ -223,8 +200,136 @@ border-radius: 10px;
 
       </div>
 
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="bleue.png" alt="bleue">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_CSGO}}</li>
+                    <li> Le jeu est sortie en {{date_CSGO}}</li>
+                    <li>{{note_CSGO}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="bleue.png" alt="bleue">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Smash_bros}}</li>
+                    <li> Le jeu est sortie en {{date_Smash_bros}}</li>
+                    <li>{{note_Smash_bros}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+        <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="bleue.png" alt="bleue">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_GTAV}}</li>
+                    <li> Le jeu est sortie en {{date_GTAV}}</li>
+                    <li>{{note_GTAV}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+
+
+        <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="bleue.png" alt="bleue">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Fortnite}}</li>
+                    <li> Le jeu est sortie en {{date_Fortnite}}</li>
+                    <li>{{note_Fortnite}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
 
       
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="bleue.png" alt="bleue">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Super_mario_odyssey}}</li>
+                    <li> Le jeu est sortie en {{date_Super_mario_odyssey}}</li>
+                    <li>{{note_Super_mario_odyssey}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="bleue.png" alt="bleue">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Cyberpunk}}</li>
+                    <li> Le jeu est sortie en {{date_Cyberpunk}}</li>
+                    <li>{{note_Cyberpunk}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
 
 </body>
 
