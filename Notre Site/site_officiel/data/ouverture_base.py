@@ -46,7 +46,7 @@ def creer_table_personne(liste):
       con.commit()
       cur.close()
       con.close()
-
+creer_table_personne(["jean","sqdqs","sdfef","qdqsoui",123,9,1])
 def creer_table_jeux():
       con = sqlite3.connect('personne.db', check_same_thread=False)
       cur = con.cursor()
@@ -80,3 +80,4 @@ def creer_table_jeux():
       con.commit()
       cur.close()
       con.close()
+creer_table_jeux()
