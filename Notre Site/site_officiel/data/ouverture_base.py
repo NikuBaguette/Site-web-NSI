@@ -19,16 +19,19 @@ listejeux=[("minecraft","18 novembre 2011"),("valorant","2 juin 2020"),("Apex","
 data=[]
 data2=[]
 
-for i in range(30):
-      temp1=(i+1,fake.name(),fake.email(),fake.street_address(),fake.city(),fake.postcode(),random.randint(0,5),random.randint(1,10))
+for i in range(40):
+      temp1=(i+1,fake.name(),fake.email(),fake.street_address(),fake.city(),fake.postcode(),random.randint(0,10),random.randint(1,10))
       data.append(temp1)
 cur.executemany("INSERT INTO Personne VALUES(?, ?, ?, ?, ?, ?, ?, ?)", data)
 con.commit()
 
 for i in range(10):
       cur.execute(f"Select AVG(note) from Personne where id_jeux={i+1}")
-      note=cur.fetchall()
-      temp2 = (i+1, listejeux[i][0], listejeux[i][1], note[0][0])
+      note=cur.fetchall()[0][0]
+      if note == None:
+            note=0
+      note=round(note)
+      temp2 = (i+1, listejeux[i][0], listejeux[i][1], note)
       data2.append(temp2)
 cur.executemany("INSERT INTO JEUX VALUES(?, ?, ? ,?)", data2)
 con.commit()
