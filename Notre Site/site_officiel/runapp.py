@@ -34,6 +34,6 @@ def result():
     values = [username, email, adresse, ville, CP, note, game]
     ringuede.creer_table_personne(values)
     ringuede.creer_table_jeux()
-    return render_template("result.html")
+    return render_template("result.html", username = username)
 
 app.run(debug=True, host='0.0.0.0', port=5000)
