@@ -6,10 +6,9 @@ fake = Faker(local='fr_FR')
 con = sqlite3.connect('personne.db')
 cur = con.cursor()
 
-listejeux=[("minecraft","18 novembre 2011"),("valorant","2 juin 2020"),("Apex","4 février 2019"),("Roblox","1 septembre 2006"),("CSGO","21 août 2012"),("smash bros","7 décembre 2018"),("GTAV","17 septembre 2013"),("Fortnite","21 juillet 2017"),("super mario odyssey","27 octobre 2017"),("cyberpunk 2077","10 décembre 2020")]
-liste_avis=["Trop Nul","BOF","Bien","Tres bien"]
 
 def creer_table_personne(liste):
+      liste_avis = ["Trop Nul", "BOF", "Bien", "Tres bien"]
       cur.execute("CREATE TABLE IF NOT EXISTS Personne(ID_personne INT PRIMARY KEY,Nom TEXT,Email TEXT,Adresse TEXT,Ville TEXT,Code_postal INT,Note INT,Avis_jeux TEXT,ID_jeux INT)")
       sql = 'DELETE FROM Personne'
       cur.execute(sql)
@@ -48,6 +47,11 @@ def creer_table_personne(liste):
       con.close()
 
 def creer_table_personne(liste):
+      listejeux = [("minecraft", "18 novembre 2011"), ("valorant", "2 juin 2020"), ("Apex", "4 février 2019"),
+                   ("Roblox", "1 septembre 2006"), ("CSGO", "21 août 2012"), ("smash bros", "7 décembre 2018"),
+                   ("GTAV", "17 septembre 2013"), ("Fortnite", "21 juillet 2017"),
+                   ("super mario odyssey", "27 octobre 2017"), ("cyberpunk 2077", "10 décembre 2020")]
+      liste_avis = ["Trop Nul", "BOF", "Bien", "Tres bien"]
       cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT)")
       sql1 = 'DELETE FROM Jeux'
       cur.execute(sql1)
