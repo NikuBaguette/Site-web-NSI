@@ -103,79 +103,80 @@
 </head>
 
 <header class="oui">
-        <img src="header.png" alt="header" class="logo">
+        <img src="templates\header.png" alt="header" class="logo">
 </header> 
 
 <body>
 
     <div class="container">
-        <form action="/action_page.php">
+        <form action="{{ url_for('result')}}" method="post">
         <div class="row">
           <div class="col-25">
-            <label for="fname">Prénom / Nom</label>
+            <label for="username">Prénom / Nom</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Prénom / Nom">
+            <input type="text" id="username" name = "username" placeholder="Prénom / Nom">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="fname">E-mail</label>
+            <label for="email">E-mail</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="E-mail">
+            <input type="text" id="email" name="email" placeholder="E-mail">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="fname">Adresse</label>
+            <label for="adresse">Adresse</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Adresse">
+            <input type="text" id="adresse" name="adresse" placeholder="Adresse">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="fname">Ville</label>
+            <label for="ville">Ville</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Ville">
+            <input type="text" id="ville" name="ville" placeholder="Ville">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="fname">Code Postal</label>
+            <label for="CP">Code Postal</label>
           </div>
           <div class="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Code Postal">
+            <input type="text" id="CP" name="CP" placeholder="Code Postal">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="lname">Jeux </label>
+            <label for="lname">Jeux</label>
           </div>
           <div class="col-75">
-            <select id="country" name="country">
-              <option value="australia">Mincraft</option>
-              <option value="canada">Valorant</option>
-              <option value="usa">Apex</option>
-              <option value="usa">Roblox</option>
-              <option value="usa">CS:GO</option>
-              <option value="usa">Super Smash Bros Ultimate</option>
-              <option value="usa">GTA 5</option>
-              <option value="usa">Fortnite</option>
-              <option value="usa">Super Mario Odyssey</option>
-              <option value="usa">Cyberpunk 2077</option>
+            <select name = 'game' >
+              <option>Minecraft</option>
+              <option>Valorant</option>
+              <option>Apex</option>
+              <option>Roblox</option>
+              <option>CS:GO</option>
+              <option>Super Smash Bros Ultimate</option>
+              <option>GTA 5</option>
+              <option>Fortnite</option>
+              <option>Super Mario Odyssey</option>
+              <option>Cyberpunk 2077</option>
             </select>
+            <input type = 'submit' value = 'submit'>
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="country">Note sur 10</label>
+            <label>Note sur 10</label>
           </div>
           <div class="col-75">
             0
-            <input type="range" min="0" max="10" step="0.5" list="valeur" />
+            <input name = 'note' type="range" min="0" max="10" step="0.5" list="valeur" />
             10
             <datalist id="valeur">
                 <option value="0" label="0"></option>
