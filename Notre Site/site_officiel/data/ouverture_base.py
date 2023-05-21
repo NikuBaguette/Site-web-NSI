@@ -46,14 +46,14 @@ def creer_table_personne(liste):
       con.commit()
       cur.close()
       con.close()
-creer_table_personne(["jean","sqdqs","sdfef","qdqsoui",123,9,1])
+
 def creer_table_jeux():
       con = sqlite3.connect('personne.db', check_same_thread=False)
       cur = con.cursor()
-      listejeux = [("minecraft", "18 novembre 2011"), ("valorant", "2 juin 2020"), ("Apex", "4 février 2019"),
-                   ("Roblox", "1 septembre 2006"), ("CSGO", "21 août 2012"), ("smash bros", "7 décembre 2018"),
-                   ("GTAV", "17 septembre 2013"), ("Fortnite", "21 juillet 2017"),
-                   ("super mario odyssey", "27 octobre 2017"), ("cyberpunk 2077", "10 décembre 2020")]
+      listejeux = [("Minecraft", "18 novembre 2011"), ("Valorant", "2 juin 2020"), ("Apex", "4 février 2019"),
+                   ("Roblox", "1 septembre 2006"), ("CS:GO", "21 août 2012"), ("Super Smash Bros Ultimate", "7 décembre 2018"),
+                   ("GTA V", "17 septembre 2013"), ("Fortnite", "21 juillet 2017"),
+                   ("Super Mario Odyssey", "27 octobre 2017"), ("Cyberpunk 2077", "10 décembre 2020")]
       liste_avis = ["Trop Nul", "BOF", "Bien", "Tres bien"]
       cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT)")
       sql1 = 'DELETE FROM Jeux'
@@ -80,4 +80,3 @@ def creer_table_jeux():
       con.commit()
       cur.close()
       con.close()
-creer_table_jeux()

@@ -21,15 +21,8 @@ def find_maxi():
     maximum = cur.fetchall()[0]
     return maximum
 
-def find_Game(id: int):
+def find_Game(id: int): # je te ez Lucien
     cur.execute(f"Select * from Jeux where ID_jeux={id}")
     conn.commit()
     result = cur.fetchall()[0]
     return result
-
-print(find_maxi())
-print(find_min())
-print(find_moyenne())
-
-for i in range(1, 11):
-    print(find_Game(i)) # je te ez Lucien
