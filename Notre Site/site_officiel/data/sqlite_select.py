@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect("personne.db")
+conn = sqlite3.connect("personne.db", check_same_thread=False)
 cur = conn.cursor()
 
 def find_min():
