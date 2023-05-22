@@ -3,7 +3,7 @@ from faker import Faker
 import random
 
 fake = Faker(local='fr_FR')
-liste_avis = ["Trop Nul", "BOF", "Bien", "Tres bien"]
+liste_avis = ["Trop Nul!!!","Nul","Pas terrible quand même", "mouais pas ouf","Bof", "Pas si mal","mouais pas mal","Bien","Ah oui oui j'aime bien","j'aime beaucoup", "Tres bien!!!"]
 
 def creer_table_personne():
       con = sqlite3.connect('personne.db', check_same_thread=False)
@@ -59,7 +59,7 @@ def creer_table_jeux():
                    ("Roblox", "1 septembre 2006"), ("CS:GO", "21 août 2012"), ("Super Smash Bros Ultimate", "7 décembre 2018"),
                    ("GTA V", "17 septembre 2013"), ("Fortnite", "21 juillet 2017"),
                    ("Super Mario Odyssey", "27 octobre 2017"), ("Cyberpunk 2077", "10 décembre 2020")]
-      liste_avis = ["Trop Nul!!!","Nul","Pas terrible quand même", "mouais pas ouf","Bof", "Pas si mal","mouais pas mal","Bien","Ah oui oui j'aime bien","j'aime beaucoup", "Tres bien!!!"]
+      
       cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT)")
       sql1 = 'DELETE FROM Jeux'
       cur.execute(sql1)
