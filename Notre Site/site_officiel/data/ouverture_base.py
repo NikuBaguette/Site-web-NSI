@@ -21,16 +21,7 @@ def ajouter_une_vrai_personne(liste):
       cur.execute("Select count(nom) from Personne")
       con.commit()
       indice = cur.fetchall()[0][0]+1
-      note=liste[5]
-      if note <= 3:
-            avis = liste_avis[0]
-      elif note <= 5:
-            avis = liste_avis[1]
-      elif note <= 7:
-            avis = liste_avis[2]
-      else:
-            avis = liste_avis[3]
-      data=[indice,liste[0],liste[1],liste[2],liste[3],liste[4],liste[5],avis,liste[6]]
+      data=[indice,liste[0],liste[1],liste[2],liste[3],liste[4],liste[5],liste[6],liste[7]]
       cur.execute(f"INSERT INTO Personne Values(?,?,?,?,?,?,?,?,?)",data)
       con.commit()
       cur.close()
