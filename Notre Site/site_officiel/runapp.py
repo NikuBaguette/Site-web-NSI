@@ -10,6 +10,9 @@ listejeux = ["Minecraft", "Valorant", "Apex",
                    "Super Mario Odyssey", "Cyberpunk 2077"]
 
 app = Flask(__name__)
+ouverture.creer_table_personne()
+ouverture.ajouter_des_faux_gens(30)
+ouverture.creer_table_jeux()
 
 @app.route("/index", methods = ["GET", "POST"])
 
@@ -37,7 +40,7 @@ def result():
     CP = int(request.form['CP'])
 
     values = [username, email, adresse, ville, CP, note, game]
-    ouverture.creer_table_personne(values)
+    ouverture.ajouter_une_vrai_personne(values)
     ouverture.creer_table_jeux()
 
     nom_minimum, minimum=requete.find_min()
