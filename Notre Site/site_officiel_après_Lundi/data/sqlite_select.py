@@ -43,9 +43,9 @@ def find_Game(id: int): # je te ez Lucien
 def find_personne(id):
     conn = sqlite3.connect("personne.db", check_same_thread=False)
     cur = conn.cursor()
-    cur.execute(f"Select Nom,commentaire from personne where ID_jeux={id}")
+    cur.execute(f"Select Nom, note, Avis_jeux from personne where ID_jeux={id}")
     conn.commit()
-    result = cur.fetchall()[0]
+    result = cur.fetchall()
     cur.close()
     conn.close()
     return result
