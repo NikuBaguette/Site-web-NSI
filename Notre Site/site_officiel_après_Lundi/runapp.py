@@ -13,6 +13,7 @@ app = Flask(__name__)
 ouverture.creer_table_personne()
 ouverture.ajouter_des_faux_gens(30)
 ouverture.creer_table_jeux()
+img_path = path.join('static', 'images')
 
 @app.route("/")
 def direct():
@@ -116,10 +117,15 @@ def result_recherche():
             id_game = i + 1
     
     id_game, nom_game, date_game, note_game, avis_game, lien_game = requete.find_Game(id_game)
-    print('images/{}'.format(lien_game))
+    
+    img_file = "images/"+lien_game
+    
+    image = url_for('static', filename = img_file)
+    
+    print(image)
     
     return render_template('result_recherche.html', nom_game = nom_game, id_game = id_game, profils = requete.find_personne(id_game),
-                           img = "url_for('static', filename='images/{}')".format(lien_game),
+                           image = image,
                            date_game = date_game, note_game = note_game, avis_game = avis_game)
 
 
