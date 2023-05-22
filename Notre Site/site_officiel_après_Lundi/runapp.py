@@ -55,34 +55,34 @@ def result():
     nom_maximum, maximum=requete.find_maxi()
 
     #minecraft
-    id_minecraft, nom_minecraft, date_minecraft, note_minecraft, avis_minecraft = requete.find_Game(1)
+    id_minecraft, nom_minecraft, date_minecraft, note_minecraft, avis_minecraft, lien_minecraft = requete.find_Game(1)
 
     #Valorant
-    id_Valorant, nom_Valorant, date_Valorant, note_Valorant, avis_Valorant = requete.find_Game(2)
+    id_Valorant, nom_Valorant, date_Valorant, note_Valorant, avis_Valorant, lien_Valorant = requete.find_Game(2)
 
     #Apex
-    id_Apex, nom_Apex, date_Apex, note_Apex, avis_Apex = requete.find_Game(3)
+    id_Apex, nom_Apex, date_Apex, note_Apex, avis_Apex, lien_Apex = requete.find_Game(3)
 
     #Roblox
-    id_Roblox, nom_Roblox, date_Roblox, note_Roblox, avis_Roblox = requete.find_Game(4)
+    id_Roblox, nom_Roblox, date_Roblox, note_Roblox, avis_Roblox, lien_Roblox = requete.find_Game(4)
 
     #CSGO
-    id_CSGO, nom_CSGO, date_CSGO, note_CSGO, avis_CSGO = requete.find_Game(5)
+    id_CSGO, nom_CSGO, date_CSGO, note_CSGO, avis_CSGO, lien_CSGO = requete.find_Game(5)
 
     #Smash_bros
-    id_SSBU, nom_SSBU, date_SSBU, note_SSBU, avis_SSBU = requete.find_Game(6)
+    id_SSBU, nom_SSBU, date_SSBU, note_SSBU, avis_SSBU, lien_SSBU = requete.find_Game(6)
 
     #GTAV
-    id_GTAV, nom_GTAV, date_GTAV, note_GTAV, avis_GTAV = requete.find_Game(7)
+    id_GTAV, nom_GTAV, date_GTAV, note_GTAV, avis_GTAV, lien_GTAV = requete.find_Game(7)
 
     #Fortnite
-    id_Fortnite, nom_Fortnite, date_Fortnite, note_Fortnite, avis_Fortnite = requete.find_Game(8)
+    id_Fortnite, nom_Fortnite, date_Fortnite, note_Fortnite, avis_Fortnite, lien_Fortinte = requete.find_Game(8)
 
     #Super_mario_odyssey
-    id_Super_Mario_Odyssey, nom_Super_Mario_Odyssey, date_Super_Mario_Odyssey, note_Super_Mario_Odyssey, avis_Super_Mario_Odyssey = requete.find_Game(9)
+    id_Super_Mario_Odyssey, nom_Super_Mario_Odyssey, date_Super_Mario_Odyssey, note_Super_Mario_Odyssey, avis_Super_Mario_Odyssey, lien_Super_Mario_Odyssey = requete.find_Game(9)
     
     #Cyberpunk
-    id_Cyberpunk, nom_Cyberpunk, date_Cyberpunk, note_Cyberpunk, avis_Cyberpunk = requete.find_Game(10)
+    id_Cyberpunk, nom_Cyberpunk, date_Cyberpunk, note_Cyberpunk, avis_Cyberpunk, lien_Cyberpunk = requete.find_Game(10)
 
     return render_template("result.html", username = username, minimum = minimum, nom_minimum = nom_minimum, 
                            maximum = maximum, nom_maximum = nom_maximum,
@@ -110,12 +110,17 @@ def recherche():
 @app.route("/result_recherche", methods = ["GET", "POST"])
 
 def result_recherche():
-    game = request.form['game']
+    nom_game = request.form['game']
     for i in range(10):
-        if game == listejeux[i]:
+        if nom_game == listejeux[i]:
             id_game = i + 1
     
-    return render_template('result_recherche.html', le_jeux = game, id_game = id_game)
+    id_game, nom_game, date_game, note_game, avis_game, lien_game = requete.find_Game(id_game)
+    print('images/{}'.format(lien_game))
+    
+    return render_template('result_recherche.html', nom_game = nom_game, id_game = id_game, profils = requete.find_personne(id_game),
+                           img = "url_for('static', filename='images/{}')".format(lien_game),
+                           date_game = date_game, note_game = note_game, avis_game = avis_game)
 
 
 app.run(debug = True, host='0.0.0.0', port=50069)
