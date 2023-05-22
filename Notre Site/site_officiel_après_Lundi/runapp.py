@@ -110,8 +110,12 @@ def recherche():
 @app.route("/result_recherche", methods = ["GET", "POST"])
 
 def result_recherche():
-    recherche = request.form['recherche']
-    return render_template('result_recherche.html', recherche = recherche)
+    game = request.form['game']
+    for i in range(10):
+        if game == listejeux[i]:
+            id_game = i + 1
+    
+    return render_template('result_recherche.html', le_jeux = game, id_game = id_game)
 
 
-app.run(debug = True, host='0.0.0.0', port=6969)
+app.run(debug = True, host='0.0.0.0', port=50069)
