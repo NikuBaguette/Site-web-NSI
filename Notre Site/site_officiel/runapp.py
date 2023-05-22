@@ -14,6 +14,10 @@ ouverture.creer_table_personne()
 ouverture.ajouter_des_faux_gens(30)
 ouverture.creer_table_jeux()
 
+@app.route("/")
+def direct():
+    return redirect(url_for('index'))
+
 @app.route("/index", methods = ["GET", "POST"])
 
 def index():
@@ -28,8 +32,8 @@ def result():
     email = request.form['email']
     adresse = request.form['adresse']
     ville = request.form['ville']
-    
     game = request.form['game']
+    avis= request.form['avis']
     for i in range(10):
         if game == listejeux[i]:
             game = i + 1
@@ -39,7 +43,7 @@ def result():
 
     CP = int(request.form['CP'])
 
-    values = [username, email, adresse, ville, CP, note, game]
+    values = [username, email, adresse, ville, CP, note,avis, game]
     ouverture.ajouter_une_vrai_personne(values)
     ouverture.creer_table_jeux()
 
