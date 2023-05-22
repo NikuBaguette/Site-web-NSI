@@ -4,6 +4,8 @@ import random
 
 fake = Faker(local='fr_FR')
 liste_avis = ["Trop Nul!!!","Nul","Pas terrible quand même", "mouais pas ouf","Bof", "Pas si mal","mouais pas mal","Bien","Ah oui oui j'aime bien","j'aime beaucoup", "Tres bien!!!"]
+      
+
 
 def creer_table_personne():
       con = sqlite3.connect('personne.db', check_same_thread=False)
@@ -30,22 +32,15 @@ def ajouter_une_vrai_personne(liste):
 def ajouter_des_faux_gens(nombre: int):
       con = sqlite3.connect('personne.db', check_same_thread=False)
       cur = con.cursor()
+      
       data = []
       for i in range(nombre):
             note = random.randint(0, 10)
             jeux = random.randint(1, 10)
             if jeux == 1:
                   note = random.randint(7,10)
-            if note <= 3:
-                  avis = liste_avis[0]
-            elif note <= 5:
-                  avis = liste_avis[1]
-            elif note <= 7:
-                  avis = liste_avis[2]
-            else:
-                  avis = liste_avis[3]
-            
-            temp1 = (i + 1, fake.name(), fake.email(), fake.street_address(), fake.city(), fake.postcode(), note, avis,jeux)
+            avis = liste_avis[note]
+            temp1 = (i + 1, fake.name(), fake.email(), fake.street_address(), fake.city(), fake.postcode(), note, avis, jeux)
             data.append(temp1)
       cur.executemany("INSERT INTO Personne VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", data)
       con.commit()
@@ -55,12 +50,12 @@ def ajouter_des_faux_gens(nombre: int):
 def creer_table_jeux():
       con = sqlite3.connect('personne.db', check_same_thread=False)
       cur = con.cursor()
-      listejeux = [("Minecraft", "18 novembre 2011"), ("Valorant", "2 juin 2020"), ("Apex", "4 février 2019"),
-                   ("Roblox", "1 septembre 2006"), ("CS:GO", "21 août 2012"), ("Super Smash Bros Ultimate", "7 décembre 2018"),
-                   ("GTA V", "17 septembre 2013"), ("Fortnite", "21 juillet 2017"),
-                   ("Super Mario Odyssey", "27 octobre 2017"), ("Cyberpunk 2077", "10 décembre 2020")]
+      listejeux = [("Minecraft", "18 novembre 2011", "Minecraft-Logo.png"), ("Valorant", "2 juin 2020", "valorant.png"), ("Apex", "4 février 2019", "Apex-Legends-Logo-2019.png"),
+                   ("Roblox", "1 septembre 2006", "roblox.png"), ("CS:GO", "21 août 2012", "csgo.png"), ("Super Smash Bros Ultimate", "7 décembre 2018", "Super_Smash_Bros._Ultimate_Logo.png"),
+                   ("GTA V", "17 septembre 2013", "gta.png"), ("Fortnite", "21 juillet 2017", "fornite.png"),
+                   ("Super Mario Odyssey", "27 octobre 2017", "supermario.jpg"), ("Cyberpunk 2077", "10 décembre 2020", "téléchargé.png")]
       
-      cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT)")
+      cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT, lien TEXT)")
       sql1 = 'DELETE FROM Jeux'
       cur.execute(sql1)
       con.commit()
@@ -68,10 +63,13 @@ def creer_table_jeux():
       for i in range(10):
             cur.execute(f"Select AVG(note) from Personne where id_jeux={i+1}")
             note=cur.fetchall()[0][0]
+            if note == None:
+                  note = 0
+            note = round(note)
             avis = liste_avis[note]
-            temp2 = (i+1, listejeux[i][0], listejeux[i][1], note,avis)
+            temp2 = (i+1, listejeux[i][0], listejeux[i][1], note, avis, listejeux[i][2])
             data2.append(temp2)
-      cur.executemany("INSERT INTO JEUX VALUES(?, ?, ? ,?, ?)", data2)
+      cur.executemany("INSERT INTO JEUX VALUES(?, ?, ? ,?, ?, ?)", data2)
       con.commit()
       cur.close()
       con.close()
