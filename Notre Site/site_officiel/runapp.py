@@ -31,7 +31,7 @@ def result():
         if game == listejeux[i]:
             game = i + 1
     note = float(request.form['note'])
-    if request.form['CP'].isdigit() == False:
+    if request.form['CP'].isdigit() == False or " " not in username or "@" not in email:
         return redirect(url_for('index'))
 
     CP = int(request.form['CP'])
@@ -92,4 +92,4 @@ def result():
                            avis_Cyberpunk = avis_Cyberpunk)
 
 
-app.run(host='192.168.56.1', port=6969)
+app.run(host='0.0.0.0', port=6969)
