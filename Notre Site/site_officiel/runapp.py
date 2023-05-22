@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from os import path
 import sqlite3
 import templates
@@ -11,7 +11,7 @@ listejeux = ["Minecraft", "Valorant", "Apex",
 
 app = Flask(__name__)
 
-@app.route("/", methods = ["GET", "POST"])
+@app.route("/index", methods = ["GET", "POST"])
 
 def index():
 
@@ -25,12 +25,17 @@ def result():
     email = request.form['email']
     adresse = request.form['adresse']
     ville = request.form['ville']
-    CP = int(request.form['CP'])
+    
     game = request.form['game']
     for i in range(10):
         if game == listejeux[i]:
             game = i + 1
     note = float(request.form['note'])
+    if request.form['CP'].isdigit() == False:
+        return redirect(url_for('index'))
+
+    CP = int(request.form['CP'])
+
     values = [username, email, adresse, ville, CP, note, game]
     ouverture.creer_table_personne(values)
     ouverture.creer_table_jeux()
@@ -87,4 +92,4 @@ def result():
                            avis_Cyberpunk = avis_Cyberpunk)
 
 
-app.run(host='0.0.0.0', port=6969)
+app.run(host='192.168.56.1', port=6969)
