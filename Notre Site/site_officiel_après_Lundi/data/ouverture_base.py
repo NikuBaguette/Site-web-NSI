@@ -59,7 +59,7 @@ def creer_table_jeux():
                    ("Roblox", "1 septembre 2006"), ("CS:GO", "21 août 2012"), ("Super Smash Bros Ultimate", "7 décembre 2018"),
                    ("GTA V", "17 septembre 2013"), ("Fortnite", "21 juillet 2017"),
                    ("Super Mario Odyssey", "27 octobre 2017"), ("Cyberpunk 2077", "10 décembre 2020")]
-      liste_avis = ["Trop Nul", "BOF", "Bien", "Tres bien"]
+      liste_avis = ["Trop Nul!!!","Nul","Pas terrible quand même", "mouais pas ouf","Bof", "Pas si mal","mouais pas mal","Bien","Ah oui oui j'aime bien","j'aime beaucoup", "Tres bien!!!"]
       cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT)")
       sql1 = 'DELETE FROM Jeux'
       cur.execute(sql1)
@@ -68,17 +68,7 @@ def creer_table_jeux():
       for i in range(10):
             cur.execute(f"Select AVG(note) from Personne where id_jeux={i+1}")
             note=cur.fetchall()[0][0]
-            if note == None:
-                  note = 0
-            note = round(note)
-            if note <= 3:
-                  avis = liste_avis[0]
-            elif note <= 5:
-                  avis = liste_avis[1]
-            elif note <= 7:
-                  avis = liste_avis[2]
-            else:
-                  avis = liste_avis[3]
+            avis = liste_avis[note]
             temp2 = (i+1, listejeux[i][0], listejeux[i][1], note,avis)
             data2.append(temp2)
       cur.executemany("INSERT INTO JEUX VALUES(?, ?, ? ,?, ?)", data2)
