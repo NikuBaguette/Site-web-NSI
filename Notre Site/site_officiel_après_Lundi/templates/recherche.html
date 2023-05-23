@@ -29,9 +29,12 @@
     {% endif %}
     
     {% if profils %}
-    
-    <p>{{profils}}</p>
+    {% for i in range(0, len_profils)%}
 
+        <p>{{profils[i][0]}} à mis {{profils[i][1]}}</p>
+        <p>Commentaire : {{profils[i][2]}}
+
+    {% endfor %}
     {% endif %}
 </body>
 </html>
