@@ -106,27 +106,21 @@ def result():
 @app.route("/recherche", methods = ["GET", "POST"])
 
 def recherche():
-    return render_template('recherche.html')
-
-@app.route("/result_recherche", methods = ["GET", "POST"])
-
-def result_recherche():
-    nom_game = request.form['game']
-    for i in range(10):
-        if nom_game == listejeux[i]:
-            id_game = i + 1
-    
-    id_game, nom_game, date_game, note_game, avis_game, lien_game = requete.find_Game(id_game)
-    
-    img_file = "images/"+lien_game
-    
-    image = url_for('static', filename = img_file)
-    
-    print(image)
-    
-    return render_template('result_recherche.html', nom_game = nom_game, id_game = id_game, profils = requete.find_personne(id_game),
+    if request.method == "POST":
+        nom_game = request.form['game']
+        for i in range(10):
+            if nom_game == listejeux[i]:
+                id_game = i + 1
+        
+        id_game, nom_game, date_game, note_game, avis_game, lien_game = requete.find_Game(id_game)
+        
+        img_file = "images/"+lien_game
+        
+        image = url_for('static', filename = img_file)
+        return render_template('recherche.html', nom_game = nom_game, id_game = id_game, profils = requete.find_personne(id_game),
                            image = image,
                            date_game = date_game, note_game = note_game, avis_game = avis_game)
+    return render_template('recherche.html')
 
 
 app.run(debug = True, host='0.0.0.0', port=50069)
