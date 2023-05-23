@@ -111,14 +111,15 @@ def recherche():
         for i in range(10):
             if nom_game == listejeux[i]:
                 id_game = i + 1
-        
+        profils = requete.find_personne(id_game)
+        len_profils = len(profils)
         id_game, nom_game, date_game, note_game, avis_game, lien_game = requete.find_Game(id_game)
         
         img_file = "images/"+lien_game
         
         image = url_for('static', filename = img_file)
-        return render_template('recherche.html', nom_game = nom_game, id_game = id_game, profils = requete.find_personne(id_game),
-                           image = image,
+        return render_template('recherche.html', nom_game = nom_game, id_game = id_game, profils = profils,
+                           image = image, len_profils = len_profils,
                            date_game = date_game, note_game = note_game, avis_game = avis_game)
     return render_template('recherche.html')
 
