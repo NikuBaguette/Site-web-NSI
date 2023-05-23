@@ -17,12 +17,7 @@ img_path = path.join('static', 'images')
 
 @app.route("/")
 def direct():
-    return redirect(url_for('index'))
-
-@app.route("/index", methods = ["GET", "POST"])
-
-def index():
-    return render_template('index.html')
+    return redirect(url_for('result'))
 
 @app.route("/formulaire", methods = ["GET", "POST"])
 
@@ -33,28 +28,9 @@ def formulaire():
 @app.route("/result", methods = ["GET", "POST"])
 
 def result():
-    username = request.form['username']
-    email = request.form['email']
-    adresse = request.form['adresse']
-    ville = request.form['ville']
-    game = request.form['game']
-    avis= request.form['avis']
-    for i in range(10):
-        if game == listejeux[i]:
-            game = i + 1
-    note = float(request.form['note'])
-    if request.form['CP'].isdigit() == False or " " not in username or "@" not in email:
-        return redirect(url_for('index'))
-
-    CP = int(request.form['CP'])
-
-    values = [username, email, adresse, ville, CP, note,avis, game]
-    ouverture.ajouter_une_vrai_personne(values)
-    ouverture.creer_table_jeux()
-
     nom_minimum, minimum=requete.find_min()
     nom_maximum, maximum=requete.find_maxi()
-
+    
     #minecraft
     id_minecraft, nom_minecraft, date_minecraft, note_minecraft, avis_minecraft, lien_minecraft = requete.find_Game(1)
 
@@ -81,27 +57,49 @@ def result():
 
     #Super_mario_odyssey
     id_Super_Mario_Odyssey, nom_Super_Mario_Odyssey, date_Super_Mario_Odyssey, note_Super_Mario_Odyssey, avis_Super_Mario_Odyssey, lien_Super_Mario_Odyssey = requete.find_Game(9)
-    
+        
     #Cyberpunk
     id_Cyberpunk, nom_Cyberpunk, date_Cyberpunk, note_Cyberpunk, avis_Cyberpunk, lien_Cyberpunk = requete.find_Game(10)
+    
+    if request.method == "POST":
+        username = request.form['username']
+        email = request.form['email']
+        adresse = request.form['adresse']
+        ville = request.form['ville']
+        game = request.form['game']
+        avis= request.form['avis']
+        for i in range(10):
+            if game == listejeux[i]:
+                game = i + 1
+        note = float(request.form['note'])
+        if request.form['CP'].isdigit() == False or " " not in username or "@" not in email:
+            return redirect(url_for('formulaire'))
 
-    return render_template("result.html", username = username, minimum = minimum, nom_minimum = nom_minimum, 
-                           maximum = maximum, nom_maximum = nom_maximum,
-                           nom_minecraft = nom_minecraft, date_minecraft = date_minecraft,
-                           note_minecraft = note_minecraft, avis_minecraft = avis_minecraft,
-                           nom_Valorant = nom_Valorant, date_Valorant = date_Valorant,
-                           note_Valorant = note_Valorant, avis_Valorant = avis_Valorant,
-                           nom_Apex = nom_Apex, date_Apex = date_Apex, note_Apex = note_Apex,
-                           avis_Apex = avis_Apex, nom_Roblox = nom_Roblox, date_Roblox = date_Roblox,
-                           note_Roblox = note_Roblox, avis_Roblox = avis_Roblox, nom_CSGO = nom_CSGO,
-                           date_CSGO = date_CSGO, note_CSGO = note_CSGO, avis_CSGO = avis_CSGO,
-                           nom_SSBU = nom_SSBU, date_SSBU = date_SSBU, note_SSBU = note_SSBU, avis_SSBU = avis_SSBU,
-                           nom_GTAV = nom_GTAV, date_GTAV = date_GTAV, note_GTAV = note_GTAV, avis_GTAV = avis_GTAV,
-                           nom_Fortnite = nom_Fortnite, date_Fortnite = date_Fortnite, note_Fortnite = note_Fortnite,
-                           avis_Fortnite = avis_Fortnite, nom_Super_Mario_Odyssey = nom_Super_Mario_Odyssey, date_Super_Mario_Odyssey = date_Super_Mario_Odyssey,
-                           note_Super_Mario_Odyssey = note_Super_Mario_Odyssey, avis_Super_Mario_Odyssey = avis_Super_Mario_Odyssey,
-                           nom_Cyberpunk = nom_Cyberpunk, date_Cyberpunk = date_Cyberpunk, note_Cyberpunk = note_Cyberpunk,
-                           avis_Cyberpunk = avis_Cyberpunk)
+        CP = int(request.form['CP'])
+
+        values = [username, email, adresse, ville, CP, note,avis, game]
+        ouverture.ajouter_une_vrai_personne(values)
+        ouverture.creer_table_jeux()
+
+    return render_template("result.html", minimum = minimum, nom_minimum = nom_minimum, 
+                            maximum = maximum, nom_maximum = nom_maximum,
+                            nom_minecraft = nom_minecraft, date_minecraft = date_minecraft,
+                            note_minecraft = note_minecraft, avis_minecraft = avis_minecraft,
+                            nom_Valorant = nom_Valorant, date_Valorant = date_Valorant,
+                            note_Valorant = note_Valorant, avis_Valorant = avis_Valorant,
+                            nom_Apex = nom_Apex, date_Apex = date_Apex, note_Apex = note_Apex,
+                            avis_Apex = avis_Apex, nom_Roblox = nom_Roblox, date_Roblox = date_Roblox,
+                            note_Roblox = note_Roblox, avis_Roblox = avis_Roblox, nom_CSGO = nom_CSGO,
+                            date_CSGO = date_CSGO, note_CSGO = note_CSGO, avis_CSGO = avis_CSGO,
+                            nom_SSBU = nom_SSBU, date_SSBU = date_SSBU, note_SSBU = note_SSBU, avis_SSBU = avis_SSBU,
+                            nom_GTAV = nom_GTAV, date_GTAV = date_GTAV, note_GTAV = note_GTAV, avis_GTAV = avis_GTAV,
+                            nom_Fortnite = nom_Fortnite, date_Fortnite = date_Fortnite, note_Fortnite = note_Fortnite,
+                            avis_Fortnite = avis_Fortnite, nom_Super_Mario_Odyssey = nom_Super_Mario_Odyssey, date_Super_Mario_Odyssey = date_Super_Mario_Odyssey,
+                            note_Super_Mario_Odyssey = note_Super_Mario_Odyssey, avis_Super_Mario_Odyssey = avis_Super_Mario_Odyssey,
+                            nom_Cyberpunk = nom_Cyberpunk, date_Cyberpunk = date_Cyberpunk, note_Cyberpunk = note_Cyberpunk,
+                            avis_Cyberpunk = avis_Cyberpunk)
+        
+        
 
 @app.route("/recherche", methods = ["GET", "POST"])
 
