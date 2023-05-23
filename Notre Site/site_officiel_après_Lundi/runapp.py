@@ -13,7 +13,6 @@ app = Flask(__name__)
 ouverture.creer_table_personne()
 ouverture.ajouter_des_faux_gens(30)
 ouverture.creer_table_jeux()
-img_path = path.join('static', 'images')
 
 @app.route("/")
 def direct():
@@ -120,6 +119,5 @@ def recherche():
                            image = image, len_profils = len_profils,
                            date_game = date_game, note_game = note_game, avis_game = avis_game)
     return render_template('recherche.html')
-
 
 app.run(debug = True, host='0.0.0.0', port=50069)
