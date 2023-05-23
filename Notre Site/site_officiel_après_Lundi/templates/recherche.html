@@ -7,7 +7,7 @@
     <title>Recherche</title>
 </head>
 <body>
-    <form action="{{url_for('result_recherche')}}" method="POST">
+    <form action="{{url_for('recherche')}}" method="POST">
         <select name="game">
             <option>Minecraft</option>
             <option>Valorant</option>
@@ -22,5 +22,16 @@
         </select>
         <input type="submit" value="Valider">
     </form>
+    {% if image %}
+
+    <img src="{{image}}">
+
+    {% endif %}
+    
+    {% if profils %}
+    
+    <p>{{profils}}</p>
+
+    {% endif %}
 </body>
 </html>
