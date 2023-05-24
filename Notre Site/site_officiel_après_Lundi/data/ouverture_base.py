@@ -61,8 +61,8 @@ def creer_table_jeux():
       cur = con.cursor()
       listejeux = [("Minecraft", "18 novembre 2011", "minecraft.jpg"), ("Valorant", "2 juin 2020", "valorant.jpg"), ("Apex", "4 février 2019", "apex.jpg"),
                    ("Roblox", "1 septembre 2006", "roblox.jpg"), ("CS:GO", "21 août 2012", "csgo.jpg"), ("Super Smash Bros Ultimate", "7 décembre 2018", "ssbu.png"),
-                   ("GTA V", "17 septembre 2013", "gta.jpg"), ("Fortnite", "21 juillet 2017", "fornite.jpg"),
-                   ("Super Mario Odyssey", "27 octobre 2017", "super-mario-odyssey.jpg"), ("Cyberpunk 2077", "10 décembre 2020", "cyberpunk.jpg")]
+                   ("GTA V", "17 septembre 2013", "gta.jpg"), ("Fortnite", "21 juillet 2017", "fortnite.jpg"),
+                   ("Super Mario Odyssey", "27 octobre 2017", "super-mario-odyssey.png"), ("Cyberpunk 2077", "10 décembre 2020", "cyberpunk.jpg")]
       
       cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT, lien TEXT)")
       sql1 = 'DELETE FROM Jeux'
