@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche</title>
-
+    <title>Résultat de recherche</title>
     <style>
 
         body{
@@ -96,44 +95,64 @@
 
 </head>
 <body>
-    <form action="{{url_for('recherche')}}" method="POST">
-        <select name="game">
-            <option>Minecraft</option>
-            <option>Valorant</option>
-            <option>Apex</option>
-            <option>Roblox</option>
-            <option>CS:GO</option>
-            <option>Super Smash Bros Ultimate</option>
-            <option>GTA 5</option>
-            <option>Fortnite</option>
-            <option>Super Mario Odyssey</option>
-            <option>Cyberpunk 2077</option>
-        </select>
-        <input type="submit" value="Valider">
-    </form>
-    {% if image %}
-
-    <img src="{{image}}">
-
-    {% endif %}
-    
-    {% if profils %}
-    {% for i in range(1, len_profils + 1)%}
-
     <div class="container">
-        <div class="row-30%">
-            <h1 style="font-size: 25px;">{{profils[-i][0]}} : {{profils[-i][1]}} /10</h1>
+        
+        <div class="row">
+          <div class="col-25">
+            <img src="{{ image }}" class="logo">
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <h1 style="font: 120px;">{{nom_game}}</h1>
+            </div>
+          </div>
         </div>
-        <div class="row-70%">
-            <p>
-                {{profils[-i][2]}}
-            </p>
+
+        <div class="col-100%">
+            <br>
+            <ul>
+                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh 
+                    ui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
+                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
+                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
+                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
+                <li>on met ici la description ( la date, la description, son auteur,...) </li>
+
+            </ul>
+
+        </div>
+
+    </div>   
+        
+
+        {% for i in range(1, len_profils + 1)%}
+
+        <div class="container">
+            <div class="row-30%">
+                <h1 style="font-size: 25px;">{{profils[-i][0]}} : {{profils[-i][1]}} /10</h1>
+            </div>
+            <div class="row-70%">
+                <p>
+                    {{profils[-i][2]}}
+                </p>
+    
+    
+            </div>
+        </div>
+        {% endfor %}
 
 
-        </div>
+
+
+
+
+
     </div>
 
-    {% endfor %}
-    {% endif %}
+
+
+
+
+
 </body>
 </html>
