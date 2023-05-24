@@ -25,6 +25,32 @@
 }
 
 
+/* barre de navigation */
+ul {
+  list-style-type: none;
+  margin-top: 10px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f5e2e23b;
+
+}
+
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #f3ecec;
+}
+
+
+
+
  
 /* responsive */
         * {
@@ -111,6 +137,14 @@
 </header> 
 
 <body>
+
+  <ul>
+    <li><a href="{{url_for('recherche')}}">Accéder à la page des jeux</a></li>
+  </ul>
+
+
+
+
 
     <div class="container">
         <form action="{{ url_for('result')}}" method="post">
