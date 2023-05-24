@@ -59,10 +59,10 @@ def ajouter_des_faux_gens(nombre: int):
 def creer_table_jeux():
       con = sqlite3.connect('personne.db', check_same_thread=False)
       cur = con.cursor()
-      listejeux = [("Minecraft", "18 novembre 2011", "Minecraft-Logo.png"), ("Valorant", "2 juin 2020", "valorant.png"), ("Apex", "4 février 2019", "Apex-Legends-Logo-2019.png"),
-                   ("Roblox", "1 septembre 2006", "roblox.png"), ("CS:GO", "21 août 2012", "csgo.png"), ("Super Smash Bros Ultimate", "7 décembre 2018", "Super_Smash_Bros._Ultimate_Logo.png"),
-                   ("GTA V", "17 septembre 2013", "gta.png"), ("Fortnite", "21 juillet 2017", "fornite.png"),
-                   ("Super Mario Odyssey", "27 octobre 2017", "supermario.jpg"), ("Cyberpunk 2077", "10 décembre 2020", "téléchargé.png")]
+      listejeux = [("Minecraft", "18 novembre 2011", "minecraft.jpg"), ("Valorant", "2 juin 2020", "valorant.jpg"), ("Apex", "4 février 2019", "apex.jpg"),
+                   ("Roblox", "1 septembre 2006", "roblox.jpg"), ("CS:GO", "21 août 2012", "csgo.jpg"), ("Super Smash Bros Ultimate", "7 décembre 2018", "ssbu.png"),
+                   ("GTA V", "17 septembre 2013", "gta.jpg"), ("Fortnite", "21 juillet 2017", "fornite.jpg"),
+                   ("Super Mario Odyssey", "27 octobre 2017", "super-mario-odyssey.jpg"), ("Cyberpunk 2077", "10 décembre 2020", "cyberpunk.jpg")]
       
       cur.execute("CREATE TABLE IF NOT EXISTS Jeux(ID_Jeux INT PRIMARY KEY,Nom TEXT,Date_sortie TEXT,Note INT,Avis_jeux TEXT, lien TEXT)")
       sql1 = 'DELETE FROM Jeux'
