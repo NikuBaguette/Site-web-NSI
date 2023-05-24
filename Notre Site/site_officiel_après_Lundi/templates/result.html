@@ -121,8 +121,10 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/Minecraft-Logo.png')}}" alt="header" class="logo"><input type="text" value="Minecraft" name="game"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Minecraft" name="game"><img src = "{{url_for('static', filename='images/minecraft.jpg')}}"></button>
+
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -142,8 +144,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/valorant.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Valorant" name="game"><img src = "{{url_for('static', filename='images/valorant.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -164,8 +167,9 @@ border-radius: 10px;
         
         <div class="row" >
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/Apex-Legends-Logo-2019.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Apex" name="game"><img src = "{{url_for('static', filename='images/apex.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -186,8 +190,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/roblox.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Roblox" name="game"><img src = "{{url_for('static', filename='images/roblox.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -208,8 +213,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/csgo.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="CS:GO" name="game"><img src = "{{url_for('static', filename='images/csgo.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -230,15 +236,16 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/Super_Smash_Bros._Ultimate_Logo.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Super Smash Bros Ultimate" name="game"><img src = "{{url_for('static', filename='images/ssbu.png')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
                 <ul>
-                    <li>{{nom_Smash_bros}}</li>
-                    <li> Le jeu est sortie en {{date_Smash_bros}}</li>
-                    <li>{{note_Smash_bros}} / 10</li>
+                    <li>{{nom_SSBU}}</li>
+                    <li> Le jeu est sortie en {{date_SSBU}}</li>
+                    <li>{{note_SSBU}} / 10</li>
                 </ul>
 
             </div>
@@ -252,8 +259,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/gta.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="GTA 5" name="game"><img src="{{url_for('static', filename='images/gta.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -276,8 +284,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/fornite.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Fortnite" name="game"><img src="{{url_for('static', filename='images/fortnite.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
@@ -299,10 +308,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <form action="">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/supermario.jpg')}}" alt="header" class="logo">
-          </a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Super Mario Odyssey" name="game"><img src="{{url_for('static', filename='images/super-mario-odyssey.png')}}"></button>
+            </form>
         </form>
           </div>
           <div class="col-75">
@@ -325,8 +333,9 @@ border-radius: 10px;
         
         <div class="row">
           <div class="col-25">
-            <a href="{{url_for('recherche')}}">
-            <img src="{{url_for('static', filename='images/téléchargé.png')}}" alt="header" class="logo"></a>
+            <form action="{{url_for('recherche')}}" method="POST">
+              <button type="submit" value="Cyberpunk 2077" name="game"><img src="{{url_for('static', filename='images/cyberpunk.jpg')}}"></button>
+            </form>
           </div>
           <div class="col-75">
             <div class="oui" >
