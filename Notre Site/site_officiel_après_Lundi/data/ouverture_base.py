@@ -3,7 +3,12 @@ from faker import Faker
 import random
 
 fake = Faker(local='fr_FR')
-liste_avis = ["Trop Nul!!!","Nul","Pas terrible quand même", "mouais pas ouf","Bof", "Pas si mal","mouais pas mal","Bien","Ah oui oui j'aime bien","j'aime beaucoup", "Tres bien!!!"]
+liste_avis = [("Graphisme du jeu inexistant, personnage et antagoniste pas interessant. Ce jeu est une insulte envers les joueurs","L'aventure donné était ininteressante je me suis endormie devant ce jeu. J'ai fait jouer mon enfant à ce jeu ses premiers mots étaient 'arréte ca stp'"),("Pourquoi les devloppeurs ont fait ce jeu, c'est pour moi l'épisode de trop, les precedents etaient mieux","Le debut du jeu est bien mais uniquement le debut, apres le tutorielle le jeu crash et mon pc a explosé"),("Un princippe interessant mais mal utilisé, les bugs sont trop fréquent et la sécurite contre les tricheurs est trop faible","Je me suis fait spawn kill par titouanDu92 si vous le connaissez donné moi son adresse je vais le tabasser"),
+ ("Malgré une histoire intessante le game designe n'est pas là, je suis déçu de ce jeu ","J'aurais aimé apprecier à sa juste valeur ce jeu qui a apparement des graphismes exceptionnelles mais bon je suis aveugle"),
+ ("Un jeu moyen sans plus, il n'a pas de réel defaut n'y de qualite il est juste OK","Une communauté soudé mais c'est un jeu qui n'est pas fini on fait vite le tour. dommage!"), ("Quelque defaut mais qui peuvent etre reglé par des patchs, hate de voir le jeu evoluer","Un jeu tres interessant mais vraiment trop court, personnage principal bon mais qui est accompagné par des personnage secondaire nul"),
+ ("Un jeu amusant et tres interessant même si il manque quelque chose pour en faire un vrais bon jeu","Un jeu incroyable mais le online à la ramasse dommage il ne manquait que ca pour en faire un bon jeu"),
+ ("Le jeu est tres bien avec un contenu émoustillant","Alors la je suis content ce jeu est bien avec plus de 100heures de gameplay meme si pour y acceder il faut payer, heureusement que je suis riche."),
+ ("C'est un bon jeu de type sandbox, un jeu familial qui peut plaire à tout le monde","c'est bien, j'aime bien, tu aimes bien et si t'aime pas je te tabasse"),("j'aime beaucoup ce jeu car ça me permet d'oublier ma vie pourris(j'ai perdu mon travail, ma femme, mes enfants et mes parents)"), ("Un jeu parfait d'une durée infinie, tres amusant, un multijoueur parfait. Bravo!!!","C'est vraiment trop bien, je joue avec mes copains de l'ecole et je sui le plus fors meme ci ma momman es pas tres contentes quands j'y jouet.")]
       
 
 
@@ -39,7 +44,8 @@ def ajouter_des_faux_gens(nombre: int):
             jeux = random.randint(1, 10)
             if jeux == 1:
                   note = random.randint(7,10)
-            avis = liste_avis[note]
+            indice=random.randint(0,1)
+            avis = liste_avis[note][indice]
             temp1 = (i + 1, fake.name(), fake.email(), fake.street_address(), fake.city(), fake.postcode(), note, avis, jeux)
             data.append(temp1)
       cur.executemany("INSERT INTO Personne VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", data)
@@ -66,7 +72,8 @@ def creer_table_jeux():
             if note == None:
                   note = 0
             note = round(note)
-            avis = liste_avis[note]
+            indice=random.randint(0,1)
+            avis = liste_avis[note][indice]
             temp2 = (i+1, listejeux[i][0], listejeux[i][1], note, avis, listejeux[i][2])
             data2.append(temp2)
       cur.executemany("INSERT INTO JEUX VALUES(?, ?, ? ,?, ?, ?)", data2)
