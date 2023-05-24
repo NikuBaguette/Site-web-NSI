@@ -3,14 +3,17 @@ from faker import Faker
 import random
 
 fake = Faker(local='fr_FR')
-liste_avis = [("Graphisme du jeu inexistant, personnage et antagoniste pas interessant. Ce jeu est une insulte envers les joueurs","L'aventure donné était ininteressante je me suis endormie devant ce jeu. J'ai fait jouer mon enfant à ce jeu ses premiers mots étaient 'arréte ca stp'"),("Pourquoi les devloppeurs ont fait ce jeu, c'est pour moi l'épisode de trop, les precedents etaient mieux","Le debut du jeu est bien mais uniquement le debut, apres le tutorielle le jeu crash et mon pc a explosé"),("Un princippe interessant mais mal utilisé, les bugs sont trop fréquent et la sécurite contre les tricheurs est trop faible","Je me suis fait spawn kill par titouanDu92 si vous le connaissez donné moi son adresse je vais le tabasser"),
- ("Malgré une histoire intessante le game designe n'est pas là, je suis déçu de ce jeu ","J'aurais aimé apprecier à sa juste valeur ce jeu qui a apparement des graphismes exceptionnelles mais bon je suis aveugle"),
- ("Un jeu moyen sans plus, il n'a pas de réel defaut n'y de qualite il est juste OK","Une communauté soudé mais c'est un jeu qui n'est pas fini on fait vite le tour. dommage!"), ("Quelque defaut mais qui peuvent etre reglé par des patchs, hate de voir le jeu evoluer","Un jeu tres interessant mais vraiment trop court, personnage principal bon mais qui est accompagné par des personnage secondaire nul"),
- ("Un jeu amusant et tres interessant même si il manque quelque chose pour en faire un vrais bon jeu","Un jeu incroyable mais le online à la ramasse dommage il ne manquait que ca pour en faire un bon jeu"),
- ("Le jeu est tres bien avec un contenu émoustillant","Alors la je suis content ce jeu est bien avec plus de 100heures de gameplay meme si pour y acceder il faut payer, heureusement que je suis riche."),
- ("C'est un bon jeu de type sandbox, un jeu familial qui peut plaire à tout le monde","c'est bien, j'aime bien, tu aimes bien et si t'aime pas je te tabasse"),("j'aime beaucoup ce jeu car ça me permet d'oublier ma vie pourris(j'ai perdu mon travail, ma femme, mes enfants et mes parents)"), ("Un jeu parfait d'une durée infinie, tres amusant, un multijoueur parfait. Bravo!!!","C'est vraiment trop bien, je joue avec mes copains de l'ecole et je sui le plus fors meme ci ma momman es pas tres contentes quands j'y jouet.")]
-      
-
+liste_avis = [("Graphismes du jeu inexistant, personnages et antagonistes pas interessants. Ce jeu est une insulte envers les joueurs","L'aventure donné était ininteressante ! Je me suis endormie devant ce jeu. J'ai même fait jouer mon enfant à ce jeu, ses premiers mots étaient 'arrête ça stp'"),
+ ("Pourquoi les développeurs ont fait ce jeu, c'est pour moi l'épisode de trop, les précedents étaient mieux","Le début du jeu est bien mais uniquement le début, après le tutorielle le jeu crash et mon pc a explosé !"),
+ ("Un princippe interessant mais mal utilisé, les bugs sont trop fréquent et la sécurite contre les tricheurs est trop faible","Je me suis fait spawn kill par titouanDu92 si vous le connaissez, donnez-moi son adresse je vais le tabasser"),
+ ("Malgré une histoire intéressante le game-designe n'est pas là, je suis déçu de ce jeu ","J'aurais aimé apprecier à sa juste valeur ce jeu qui a apparement des graphismes exceptionnelles mais bon je suis aveugle"),
+ ("Un jeu moyen sans plus, il n'a pas de réel défaut n'y de qualité. Il est juste OK","Une communauté soudé mais c'est un jeu qui n'est pas fini dont on fait vite le tour. Dommage !"),
+ ("Quelques défauts mais qui peuvent être réglés par des patchs, hâte de voir le jeu évoluer","Un jeu très intéressant mais vraiment trop court, le personnage principal est bien écrit mais qui est accompagné par des personnages secondaires inintéressants"),
+ ("Un jeu amusant et très interessant même si il manque quelque chose pour en faire un vrai bon jeu","Un jeu incroyable mais le online à la ramasse. Dommage il ne manquait que ca pour en faire un bon jeu"),
+ ("Le jeu est très bien avec un contenu émoustillant","Alors là je suis content ce jeu est bien avec plus de 100 heures de gameplay même si pour y acceder il faut payer, heureusement que je suis riche."),
+ ("C'est un bon jeu de type sandbox, un jeu familial qui peut plaire à tout le monde","C'est bien, j'aime bien, tu aimes bien et si t'aime pas je te tabasse"),
+ ("j'aime beaucoup ce jeu car ça me permet d'oublier ma vie pourrie (j'ai perdu mon travail, ma femme, mes enfants et mes parents)", "Jeu incroyable et riche en expérience, on sent qu'il va avoir du mal à veillir et ça fait plaisir."),
+ ("Un jeu parfait d'une durée de vie et possibilités infinie, très amusant, un multijoueur parfait. Bravo !!!","C'est vraiment trop bien, je joue avec mes copains de l'ecole et je sui le plus fors meme ci ma momman es pas tres contentes quands j'y jouet.")]
 
 def creer_table_personne():
       con = sqlite3.connect('personne.db', check_same_thread=False)
