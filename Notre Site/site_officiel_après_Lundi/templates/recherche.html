@@ -1,20 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Résultat de recherche</title>
-    <style>
+    
+<title>page 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+background-color: wheat;
+}
 
-        body{
-            background-color: antiquewhite;
-        }
 
-        /* responsive */
+
+header{
+background: rgba( 120, 196, 237 ,0.6);
+display: flex;
+justify-content: center;
+background-attachment: fixed;
+background-size: over;
+height: 200px;
+border: 2px solid black;
+border-radius: 10px;
+
+}
+
+
+/* barre de navigation */
+ul {
+  list-style-type: none;
+  margin-top: 10px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f5e2e23b;
+
+}
+
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #f3ecec;
+}
+
+
+
+/* responsive */
     * {
       box-sizing: border-box;
-      
     }
     
     input[type=text], select, textarea {
@@ -62,14 +99,14 @@
 
     .col-25 {
       float: left;
-      width: 40%;
+      width: 25%;
       margin-top: 6px;
 
     }
     
     .col-75 {
       float: left;
-      width: 60%;
+      width: 75%;
       margin-top: 6px;
       background-color: rgba(194, 181, 255, 0.616);
       border-radius: 10px;
@@ -90,69 +127,251 @@
         margin-top: 0;
       }
     }
-    </style>
-
-
+    
+</style>
 </head>
+
+
+<header>
+
+    <h1 style="padding-top:20px ;">Avis des jeux ainsi que leurs notes</h1>
+
+
+</header>
+
 <body>
+
+  <ul>
+    <li><a href="{{url_for('formulaire')}}">Mettre un commentaire sur votre jeu favoris</a></li>
+  </ul>
+
+
+
     <div class="container">
         
         <div class="row">
           <div class="col-25">
-            <img src="{{ image }}" class="logo">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/valorant.png')}}" alt="header" class="logo"></a>
           </div>
           <div class="col-75">
             <div class="oui" >
-                <h1 style="font: 120px;">{{nom_game}}</h1>
+                <ul>
+                    <li>{{nom_minecraft}}</li>
+                    <li> Le jeu est sortie en {{date_minecraft}}</li>
+                    <li>{{note_minecraft}} / 10</li>
+                </ul>
+
             </div>
           </div>
         </div>
-
-        <div class="col-100%">
-            <br>
-            <ul>
-                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh 
-                    ui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
-                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
-                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
-                <li>oui j'aime le raciste aehrkajzhe jahzekj hakljzeh rkjazea lkzaeh </li>
-                <li>on met ici la description ( la date, la description, son auteur,...) </li>
-
-            </ul>
-
-        </div>
-
-    </div>   
         
 
-        {% for i in range(1, len_profils + 1)%}
+      </div>
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/valorant.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Valorant}}</li>
+                    <li> Le jeu est sortie en {{date_Valorant}}</li>
+                    <li>{{note_Valorant}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+      <div class="container">
+        
+        <div class="row" >
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/Apex-Legends-Logo-2019.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Apex}}</li>
+                    <li> Le jeu est sortie en {{date_Apex}}</li>
+                    <li>{{note_Apex}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/roblox.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Roblox}}</li>
+                    <li> Le jeu est sortie en {{date_Roblox}}</li>
+                    <li>{{note_Roblox}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/csgo.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_CSGO}}</li>
+                    <li> Le jeu est sortie en {{date_CSGO}}</li>
+                    <li>{{note_CSGO}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/Super_Smash_Bros._Ultimate_Logo.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Smash_bros}}</li>
+                    <li> Le jeu est sortie en {{date_Smash_bros}}</li>
+                    <li>{{note_Smash_bros}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
 
         <div class="container">
-            <div class="row-30%">
-                <h1 style="font-size: 25px;">{{profils[-i][0]}} : {{profils[-i][1]}} /10</h1>
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/gta.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_GTAV}}</li>
+                    <li> Le jeu est sortie en {{date_GTAV}}</li>
+                    <li>{{note_GTAV}} / 10</li>
+                </ul>
+
             </div>
-            <div class="row-70%">
-                <p>
-                    {{profils[-i][2]}}
-                </p>
-    
-    
-            </div>
+          </div>
         </div>
-        {% endfor %}
+        
+
+      </div>
 
 
 
+        <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/fornite.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Fortnite}}</li>
+                    <li> Le jeu est sortie en {{date_Fortnite}}</li>
+                    <li>{{note_Fortnite}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+
+      
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/supermario.jpg')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Super_mario_odyssey}}</li>
+                    <li> Le jeu est sortie en {{date_Super_mario_odyssey}}</li>
+                    <li>{{note_Super_mario_odyssey}} / 10</li>
+                </ul>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
 
 
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-25">
+            <a href="{{url_for('recherche')}}">
+            <img src="{{url_for('static', filename='images/téléchargé.png')}}" alt="header" class="logo"></a>
+          </div>
+          <div class="col-75">
+            <div class="oui" >
+                <ul>
+                    <li>{{nom_Cyberpunk}}</li>
+                    <li> Le jeu est sortie en {{date_Cyberpunk}}</li>
+                    <li>{{note_Cyberpunk}} / 10</li>
+                </ul>
 
+            </div>
+          </div>
+        </div>
+        
 
-    </div>
-
-
-
-
+      </div>
 
 
 </body>
+
+
 </html>
